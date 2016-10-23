@@ -8,7 +8,7 @@ def Ccpp_run(flag = 0):
     current_file = vim.eval('expand("%:p:t")')
     current_file_split = os.path.splitext(current_file)
     current_path = vim.eval('expand("%:p:h")')
-    bin_com = 'gcc' if current_file_split[1] == '.c' else 'g++'
+    bin_com = 'gcc' if vim.eval('&filetype') == 'c' else 'g++'
     os.chdir(current_path)
     compiler = ''
     run = 'cd {:s}; ./{:s}'.format(build_path, current_file_split[0])
